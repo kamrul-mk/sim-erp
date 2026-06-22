@@ -3,13 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Guardian;
 
 class Student extends Model
 {
+    public function guardian()
+    {
+        return $this->belongsTo(Guardian::class);
+    }
+
     protected $fillable = [
         'academic_year_id',
         'class_room_id',
         'section_id',
+        'guardian_id',
         'admission_no',
         'roll_no',
         'registration_no',
